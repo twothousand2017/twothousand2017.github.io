@@ -1,0 +1,21 @@
+[submodule "themes/maupassant"]
+	path = themes/maupassant
+	url = https://github.com/tufu9441/maupassant-hexo.git
+[submodule "themes/butterfly"]
+	path = themes/butterfly
+	url = https://github.com/jerryc127/hexo-theme-butterfly.git
+[submodule "themes/matery"]
+	path = themes/matery
+	url = https://github.com/blinkfox/hexo-theme-matery.git
+[submodule "themes/fluid"]
+	path = themes/fluid
+	url = https://github.com/fluid-dev/hexo-theme-fluid.git
+[submodule "themes/next"]
+	path = themes/next
+	url = https://github.com/next-theme/hexo-theme-next
+[submodule "themes/nexmoe"]
+	path = themes/nexmoe
+	url = https://github.com/theme-nexmoe/hexo-theme-nexmoe.git
+[submodule "themes/stellar"]
+	path = themes/stellar
+	url = https://github.com/xaoxuu/hexo-theme-stellar.git

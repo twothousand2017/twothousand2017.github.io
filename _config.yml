@@ -1,0 +1,179 @@
+###################################
+# 配置整理备注：https://yiwangmeng.cn
+# 本文件为网站基础配置，主题内容相关请到 `_config.主题名.yml` 中去设置修改
+# `_config.主题名.yml` 来源于 `themes/主题名/_config.yml`，如主题有更新请自行同步
+# Hexo 会将 `_config.主题名.yml` 和 `themes/主题名/_config.yml` 配置合并使用
+# 相同配置项则以 `_config.主题名.yml` 中的值为准
+# 推荐用 vscode、atom 之类的编辑器更改，一些格式会显色，如果改错了显色格式不一样
+# 强烈不建议使用Windows系统自带的记事本修改本配置文件
+# `.yml` 配置值中有特殊符号/长文本等都建议用 ''（英文引号）包起来
+###################################
+
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 二零一七 #网站标题
+subtitle: '原创企划 18+ 丧尸末日 现代架空 废土朋克' #网站副标题
+description: '原创企划 18+ 丧尸末日 现代架空 废土朋克|文画兼收|QQ审核群675465634' #网站描述
+# keywords: '静态网站 免费建站 GitHub博客 免备案网站' #网站关键词，不是所有的主题都支持
+author: '月色、JS975仿生型魔导浮游炮、梧桐' #作者
+timezone: 'Asia/Shanghai' #时区，一般中国时区
+# language: en  #网站语言，默认 en，请根据主题文档设置
+# language: zh-Hans #theme: yelee，next
+language: zh-CN  #theme: maupassant，landscape，Annie
+
+# Extensions 
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# 只能启用1个主题，启用后本地使用 `hexo s` 命令即可启动预览服务进行预览
+# 切换主题后如果预览样式不对，请启动预览服务前运行一遍 `hexo clean` 命令
+# 主题相关请严格按照主题文档去配置，主题相关请严格按照主题文档去配置，主题相关请严格按照主题文档去配置
+# theme: landscape  #默认主题，最简单
+# theme: maupassant #简洁的博客主题，配置文件：_config.maupassant.yml
+# theme: butterfly  #多功能主题，配置文件：_config.butterfly.yml
+# theme: matery #响应式布局多媒体主题，配置文件：_config.matery.yml
+# theme: fluid #Material Design 风格主题，配置文件：_config.fluid.yml
+theme: next #简约的博客主题，配置文件：_config.next.yml
+# theme: Academia #学术简历主题，配置文件：_config.Academia.yml
+# theme: yelee #双栏博客主题，配置文件：_config.yelee.yml
+# theme: nexmoe #二次元主题，配置文件：_config.nexmoe.yml
+# theme: stellar #简约商务风主题，配置文件：_config.stellar.yml
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://twothousand2017.github.io # 网址, 必须以 http[s]:// 开头，没有自己的域名就用免费 username.github.io
+permalink: :title.html #链接发布格式
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory #这下面一坨目录配置一般都不要动
+source_dir: source # 不要改
+public_dir: public # 不要改
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render: [README.md]
+
+# Writing
+new_post_name: :year-:month-:title.md #新建文章文件命名格式，与链接发布格式呼应，建议title不要出现中文
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 6
+  order_by: -date
+archive_generator:
+  per_page: 40  #值为0表示不分页，按需填写
+  yearly: true  #是否按年生成归档
+  monthly: false  #为了加快生成速度，按月归档就不要了
+tag_generator:
+  per_page: 40  #值为0表示不分页，按需填写
+category_generator:
+  per_page: 40  #值为0表示不分页，按需填写
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 20
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Deployment, 'hexo deploy' 命令发布用到此配置，仓库版不需要本地渲染和发布
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''
+
+# 基于jQuery的本地搜索引擎，需要安装hexo-generator-search插件使用
+##  path - file path. Default is search.xml .
+##  field - the search scope you want to search, you can chose:
+##  post (Default) - will only covers all the posts of your blog.
+##  page - will only covers all the pages of your blog.
+##  all - will covers all the posts and pages of your blog.
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# 在生成文章时生成中文拼音的永久链接，hexo-permalink-pinyin
+# permalink_pinyin:
+#   enable: true
+#   separator: '-' # default: '-'
+#   exclude: /ignore_post/   # Regex for which post should skip
+
+# 图表，以主题具体实现为准，建议有公式的页面才加载
+# https://github.com/webappdevelp/hexo-filter-mermaid-diagrams
+# <script type="text/javascript" async
+#   src="https://unpkg.com/mermaid@9.1.1/dist/mermaid.min.js">
+# </script>
+# mermaid: ## mermaid url https://github.com/knsv/mermaid
+#   enable: true  # default true
+#   version: "9.1.1" # default v7.1.2
+#   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+    #startOnload: true  // default true
+
+# 数学公式，以主题具体实现为准，建议有公式的页面才加载
+# https://github.com/hexojs/hexo-math
+# <script type="text/javascript" async
+#   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+# </script>
+# math:
+#   engine: 'mathjax' # 'mathjax' or 'katex'
+#   mathjax:
+#     src: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML ##custom_mathjax_source
+#     config:
+      # MathJax config
