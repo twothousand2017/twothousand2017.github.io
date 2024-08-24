@@ -135,8 +135,8 @@ ignore:
 
 # Deployment, 'hexo deploy' 命令发布用到此配置，仓库版不需要本地渲染和发布
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ''
+# deploy:
+#   type: ''
 
 # 基于jQuery的本地搜索引擎，需要安装hexo-generator-search插件使用
 ##  path - file path. Default is search.xml .
@@ -178,3 +178,8 @@ search:
 #     src: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML ##custom_mathjax_source
 #     config:
       # MathJax config
+
+deploy:
+  type: git
+  repo: https://github.com/twothousand2017/twothousand2017.github.io
+  branch: gh-pages
