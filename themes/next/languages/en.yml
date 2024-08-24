@@ -1,10 +1,10 @@
-name: English
-
 title:
   archive: Archive
   category: Category
   tag: Tag
   schedule: Schedule
+
+author: Author
 
 menu:
   home: Home
@@ -20,36 +20,35 @@ menu:
 sidebar:
   overview: Overview
   toc: Table of Contents
-  links: Links
 
 post:
+  created: Post created
+  modified: Post modified
+  sticky: Sticky
   posted: Posted on
-  edited: Edited on
-  created: Created
-  modified: Modified
-  edit: Edit this post
   in: In
+  more: more
   read_more: Read more
   untitled: Untitled
-  sticky: Sticky
-  views: Views
-  related_posts: Related Posts
+  toc_empty: This post does not have a Table of Contents
+  visitors: Visitors
+  wordcount: Words count in article
+  min2read: Reading time
+  totalcount: Site words total count
   copyright:
     author: Post author
     link: Post link
-    post_author: Written by
-    post_link: This article originally appeared on
     license_title: Copyright Notice
-    license_content: "All articles in this blog are licensed under %s unless stating additionally."
+    license_content: 'All articles in this blog are licensed under
+      <a href="%s" rel="external nofollow" target="_blank">%s</a> unless stating additionally.'
+
+page:
+  totally: Totally
+  tags: tags
 
 footer:
   powered: "Powered by %s"
-  total_views: Total Views
-  total_visitors: Total Visitors
-
-widget:
-  github: Follow me on GitHub
-  chat: Chat
+  theme: Theme
 
 counter:
   tag_cloud:
@@ -69,14 +68,12 @@ counter:
 
 state:
   posts: posts
+  pages: pages
   tags: tags
   categories: categories
 
 search:
   placeholder: Searching...
-  empty: "We didn't find any results for the search: %s"
-  hits_time: "%s results found in %s ms"
-  hits: "%s results found"
 
 cheers:
   um: Um..
@@ -89,31 +86,14 @@ cheers:
 keep_on: Keep on posting.
 
 symbol:
-  comma: ", "
-  period: ". "
-  colon: ": "
+  comma: ', '
+  period: '. '
+  colon: ':'
 
 reward:
   donate: Donate
   wechatpay: WeChat Pay
   alipay: Alipay
-  paypal: PayPal
   bitcoin: Bitcoin
-  comment: Buy me a coffee
 
-follow_me:
-  welcome: Welcome to my other publishing channels
-
-accessibility:
-  nav_toggle: Toggle navigation bar
-  prev_page: Previous page
-  next_page: Next page
-  back_to_top: Back to top
-  select_lang: Select language
-
-symbols_count_time:
-  count: Word count in article
-  count_total: Word count total
-  time: Reading time
-  time_total: Reading time total
-  time_minutes: mins.
+gitmentbutton: Show comments from Gitment

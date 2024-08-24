@@ -1,56 +1,33 @@
 .site-nav {
   +mobile() {
-    padding-top: 30px;
-  }
-}
-
-.main-menu {
-  +mobile() {
-    border-bottom: 1px solid $grey-lighter;
-    border-top: 1px solid $grey-lighter;
+    position: absolute;
+    left: 0;
+    top: 52px;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    background: white;
+    border-bottom: 1px solid $gray-lighter;
+    z-index: $zindex-5;
   }
 }
 
 .menu {
-  +mobile() {
-    text-align: left;
-  }
+  +mobile() { text-align: left; }
 }
-
 .menu .menu-item {
   +mobile() {
+    display: block;
     margin: 0 10px;
+    vertical-align: top;
+  }
+
+  br {
+    +mobile() { display: none; }
   }
 
   a {
-    border-bottom: 1px solid transparent;
-
-    +mobile() {
-      padding: 5px 10px;
-    }
-
-    &:hover, &.menu-item-active {
-      background: transparent;
-      border-bottom: 1px solid var(--link-hover-color);
-
-      +mobile() {
-        border-bottom: 1px dotted $grey-lighter;
-      }
-    }
+    +mobile() { padding: 5px 10px; }
   }
-
-  .fa, .fab, .far, .fas {
-    +tablet-desktop() {
-      display: block;
-      line-height: 2;
-      margin-right: 0;
-      width: 100%;
-    }
-  }
-
-  .badge {
-    background: $gainsboro;
-    color: $black-light;
-    padding: 1px 4px;
-  }
+  .fa { margin-right: 0; }
 }

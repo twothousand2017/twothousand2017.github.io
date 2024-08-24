@@ -1,41 +1,57 @@
 .post-nav {
+  display: table;
+  margin-top: 15px;
+  width: 100%;
   border-top: 1px solid $gainsboro;
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  margin-top: 1em;
-  padding: 10px 5px 0;
+}
+
+.post-nav-divider {
+  display: table-cell;
+  width: 10%;
 }
 
 .post-nav-item {
-  flex: 1;
+  display: table-cell;
+  padding: 10px 0 0 0;
+  width: 45%;
+  vertical-align: top;
 
   a {
-    border-bottom: 0;
+    position: relative;
     display: block;
-    font-size: $font-size-small;
-    line-height: 1.6;
+    line-height: 25px;
+    font-size: 14px;
+    color: $link-color;
+    border-bottom: none;
 
-    &:active {
-      top: 2px;
+    &:hover {
+      color: $link-hover-color;
+      border-bottom: none;
     }
+
+    &:active { top: 2px; }
   }
 
   .fa {
-    font-size: $font-size-smallest;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    font-size: 12px;
   }
 
-  &:first-child {
-    .fa {
-      margin-right: 5px;
-    }
-  }
+}
 
-  &:last-child {
-    text-align: right;
+.post-nav-next {
+  a { padding-left: 15px; }
+}
 
-    .fa {
-      margin-left: 5px;
-    }
+.post-nav-prev {
+  text-align: right;
+
+  a { padding-right: 15px; }
+
+  .fa {
+    right: 0;
+    left: auto;
   }
 }

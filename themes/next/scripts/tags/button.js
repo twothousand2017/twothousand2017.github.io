@@ -1,23 +1,31 @@
-/**
- * button.js | https://theme-next.js.org/docs/tag-plugins/button
- */
+/* global hexo */
+// Usage: {% button /path/to/url/, text, icon [class], title %}
+// Alias: {% btn /path/to/url/, text, icon [class], title %}
 
-'use strict';
-
-module.exports = ctx => function(args) {
+function postButton(args) {
   args = args.join(' ').split(',');
-  const url   = args[0];
-  const text  = (args[1] || '').trim();
-  let icon    = (args[2] || '').trim();
-  const title = (args[3] || '').trim();
+  var url = args[0];
+  var text = args[1] || '';
+  var icon = args[2] || '';
+  var title = args[3] || '';
 
   if (!url) {
-    ctx.log.warn('URL can NOT be empty.');
-  }
-  if (icon.length > 0) {
-    if (!icon.startsWith('fa')) icon = 'fa fa-' + icon;
-    icon = `<i class="${icon}"></i>`;
+    hexo.log.warn('URL can NOT be empty');
   }
 
-  return `<a class="btn" href="${url}"${title.length > 0 ? ` title="${title}"` : ''}>${icon}${text}</a>`;
-};
+  text = text.trim();
+  icon = icon.trim();
+  title = title.trim();
+
+  var result = ['<a class="btn" href="' + url + '"'];
+  title.length > 0 && result.push(' title="' + title + '"');
+  result.push('>');
+  icon.length > 0 && result.push('<i class="fa fa-' + icon + '"></i>');
+  text.length > 0 && result.push(text);
+  result.push('</a>');
+
+  return result.join('');
+}
+
+hexo.extend.tag.register('button', postButton);
+hexo.extend.tag.register('btn', postButton);
