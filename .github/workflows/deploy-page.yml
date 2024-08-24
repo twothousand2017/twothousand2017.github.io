@@ -1,55 +1,50 @@
-name: Pages-GitHub
+name: Pages
+
 on:
   push:
     branches:
-    - main #触发的分支 
+      - main # default branch
 
 jobs:
-  main-to-gh-pages:
+  build:
     runs-on: ubuntu-latest
-        
-    steps:                          
-    - name: checkout main
-      uses: actions/checkout@v3
-      with:
-        submodules: true  # Fetch Hugo themes (true OR recursive)
-        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-    - name: Get baseURL
-      run: |
-        baseURL=$(cat _config.yml | awk '/^url: /' | awk '{print $2}' | sed "s|[\'\"]||g" | awk -F '//' '{print $2}' | sed "s|/||")
-        if [[ $baseURL ]]; then
-          echo "CNAME=$baseURL" >>$GITHUB_ENV
-        else
-          echo "Check baseURL setting in root _config.yml please."
-          cat _config.yml
-        fi
-
-    - name: Set CNAME
-      if: ${{ ! contains(env.CNAME, 'github.io') }}
-      run: |
-        echo ${{ env.CNAME }} >"source/CNAME"
-        mv -f README.md source
-            
-    - name: Install nodejs
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-      
-    - name: Install hexo and build
-      run: |
-        npm install -g hexo-cli
-        npm install
-        hexo g
-
-    - name: Deploy public to branch pages-hexo
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        # github_token: ${{ secrets.GAYHUB_TOKEN }} # 该项适用于发布到源码相同repo的情况，不能用于发布到其他repo
-        personal_token: ${{ secrets.ACTION_ACCESS_TOKEN }}	# 发布到其他repo需要提供上面生成的personal access token
-        publish_dir: ./public	# 注意这里指的是要发布哪个文件夹的内容，而不是指发布到目的仓库的什么位置
-        external_repository: ${{ github.actor }}/${{ github.actor }}.github.io	# 发布到哪个repo
-        publish_branch: pages-hexo	# 发布到哪个branch
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
-        force_orphan: true # make your publish branch with only the latest commit                
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # If your repository depends on submodule, please see: https://github.com/actions/checkout
+          submodules: recursive
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
+          # Ref: https://github.com/actions/setup-node#supported-version-syntax
+          node-version: "18.15.0"
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
